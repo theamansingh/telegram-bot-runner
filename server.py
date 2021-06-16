@@ -9,7 +9,7 @@ def make_reply(msg):
         try:
             if int(msg):
                 import requests
-                api_key = 'UAs8NFbd45nvhzTdkHBBCdUKAKRHbF58eSUHfUEI'
+                api_key = os.environ['api_key']
                 headers = {'Content-Type': 'application/json',
                            'Accept': 'application/json', 'Api-Key': api_key}
                 response = requests.post('http://be.redash.box8.co.in/api/queries/'+str(
