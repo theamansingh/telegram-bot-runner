@@ -13,8 +13,8 @@ def make_reply(msg):
                 headers = {'Content-Type': 'application/json',
                            'Accept': 'application/json', 'Api-Key': api_key}
                 response = requests.post('http://be.redash.box8.co.in/api/queries/'+str(
-                    msg)+'/refresh?api_key=UAs8NFbd45nvhzTdkHBBCdUKAKRHbF58eSUHfUEI', headers=headers)
-                reply = str(msg)+' triggered successfully'
+                    msg)+'/refresh?api_key='+str(api_key), headers=headers)
+                reply = str(msg)+' triggered successfully.'
         except:
             reply = 'Please enter a valid query number!'
 
