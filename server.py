@@ -14,9 +14,9 @@ def make_reply(msg):
                            'Accept': 'application/json', 'Api-Key': api_key}
                 response = requests.post('http://be.redash.box8.co.in/api/queries/'+str(
                     msg)+'/refresh?api_key=UAs8NFbd45nvhzTdkHBBCdUKAKRHbF58eSUHfUEI', headers=headers)
-                reply = response.text
+                reply = str(msg)+' triggered successfully'
         except:
-            reply = 'Please enter query number'
+            reply = 'Please enter a valid query number!'
 
     return reply
 
@@ -30,8 +30,8 @@ while True:
             update_id = item["update_id"]
             try:
                 message = str(item["message"]["text"])
+                from_ = item["message"]["from"]["id"]
+                reply = make_reply(message)
+                bot.send_message(reply, from_)
             except:
                 message = None
-            from_ = item["message"]["from"]["id"]
-            reply = make_reply(message)
-            bot.send_message(reply, from_)
