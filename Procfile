@@ -1,1 +1,1 @@
-worker python delpoy.py
+worker python python.py
